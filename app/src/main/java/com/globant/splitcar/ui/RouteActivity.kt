@@ -57,7 +57,7 @@ class RouteActivity : AppCompatActivity() {
         }
         textViewTimeRoute.setOnClickListener {
             TimePickerDialog(this@RouteActivity, onTimeSetListener, calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE),
-                    true).show()
+                    false).show()
         }
     }
 
