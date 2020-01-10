@@ -75,32 +75,78 @@ Implement an application in Android Studio with Kotlin to share the travel route
  
 #
 #
-1. **Ver el listado de las rutas disponibles.**
-<br />:walking: Como usuario. <br /> **_Quiero_** visualizar un listado de turas con una paginacion de 10 elementos y cada elemento debe mostrar los
-siguientes campos: `propietario`, `origen`, `destino`, `fecha`, `hora` y `cupos disponibles`. Para poder identificar la ruta en la que estoy
-interesado
+1. **Authentication with my Google account.**
+<br />:walking: [Stakeholders] <br /> [driver, passenger] <br /> [Requirements] <br /> **_- I Want_** to be able to authenticate myself with my 
+Google account, to enter the application in an easy and secure way.
 #  
-2. **Realizar una búsqueda, de los sitios principales del campo `referencia destino` que han sido ingresados al crear una ruta.**
-<br />:walking: Como usuario. <br /> **_Quiero_** tener una caja de texto de busqueda donde pueda digitar `sitios de referencia`.   
-Para filtrar el listado de rutas, cada vez que digite una letra; si la caja de texto esta vacía mostrará las todas las rutas con una paginación de 10 elementos.
+-Google Account enabled and working.
 #  
-3. **Crear una ruta.**
-<br />:walking: Como usuario. <br /> **_Quiero_** crear una ruta en un formulario con los siguientes campos: `propietario`, `destino`, `hora`, `cupos disponibles`, `lugar de encuentro` y `referencia destino`. <br /> **_Quiero_** que en la vista de creación de ruta poder acceder a los viajes anteriores. <br /> **_Quiero_** tener un botón para confirmar todos los datos al crear una ruta. <br /> **_Quiero_** poder precargar fácilmente de mis viajes anteriores la información de la `hora`, `origen`, `destino`, `cupos`, `lugar de encuentro` y `referencia destino`. <br /> **_Quiero_** tener la posibilidad de seleccionar: `hora` y `cupos` sin necesidad de   digitarlos. <br /> **_Quiero_** tener la posibilidad de elegir los `lugares principales` por los que voy a pasar al realizar mi ruta.
-Para crear una ruta con todos los datos que necesita un usuario con perfil pasajero.  
+<br /> [Restrictions] <br /> 
+-Users don't want to authenticate or don't have a working Google Account.
+#  
+2. **List of available trips.**
+<br />:walking: [Stakeholders] <br /> [driver, passenger] <br /> [Requirements] <br /> **_- I Want_** to see a list of trips, each trip must show 
+the following fields: driver, origin, final destination, destination reference, time and available seats, to identify a trip of interest.
+#  
+**_- I Want_** to be able to identify on two different screens what trips are available and what trips are mine.
+#  
+[Restrictions]
+#  
+-Trips shown are only from the current day.
+#  
+-Trips will not be deleted from the database, it will be saved to keep the record of each of them.
+#  
+3. **Filter the locations where the trip will pass by.**
+<br />:walking: [Stakeholders] <br /> [driver, passenger] <br /> [Requirements] <br /> **_- I Want_** to search for trips of my convenience that 
+pass close to my destination, to join the trip.
+#  
+-I can type sites in a search text box.  
+#  
+[Restrictions]
+#  
+-List of trips will be filtered, each time the stakeholder types a letter; if the text box is empty, it will show all trips with a 10-item pagination.
+#  
+-Filter of trips is based on preloaded sites, these sites must be selected from a list.
+#  
+4. **Creation of the trip.**
+<br />:walking: [Stakeholders] <br /> [driver] <br /> [Requirements] <br /> **_- I Want_** to create trips in an easy way, choose destination, choose the locations where I am going to pass with my trip, choose the time in an easy way, a meeting point with preloaded sites, and select the available seats.
+#  
+-**_- I Want_** to access to the previous trips.
+#  
+-**_- I Want_** a previous trip's  information to be preloaded.
+#  
+[Restrictions]
+#  
+-Destination is based on preloaded sites, these sites must be selected from a list.
+#  
+-Locations is based on preloaded sites, these sites must be selected from a list.
+#  
+-Drivers who have an active trip, cannot subscribe to any existing trip.
+#  
+-Drivers cannot have more than one active trip once.
+#  
+-Passengers cannot create trips until they complete the current trip.
+#  
+-Passengers cannot belong more than one trip once.
+#  
+5. **Enabled or Disbaled a trip.**
+<br />:walking: [Stakeholders] <br /> [driver] <br /> [Requirements] <br /> **_I Want_** to enable or disable a trip, in List of my trips, just with the gesture swipe. 
+#  
+-When trip is disabled a notification will be sent to each passenger.
+#  
+6. **Join a trip.**
+<br />:walking: [Stakeholders] <br /> [driver] <br /> [Requirements] <br /> **_I Want_** to be able to join a trip by selecting an available trip 
+from the list in the main view.
+#  
+**_I Want_** to have the information of a selected trip with the following fields: owner, time, origin, destination, available seats, meeting place, 
+destination references. 
+#  
+[Restrictions]
+#  
+-Passenger can't joined, if trip is not available.
+#  
+7. **Alarm close to departure time.**
+<br />:walking: [Stakeholders] <br /> [driver] <br /> [Requirements] <br /> **_I Want_** to be notified within 15 minutes of departure time by sound 
+and/or vibration to arrive punctually at the departure meeting point.
 
-:no_entry: El usuario que cree una ruta, no puede suscribirse a ninguna ruta existente.  
-:no_entry: Si un usuario se suscribe a una ruta, no puede crear rutas hasta que finalice dicha ruta.  
- 
-
 #  
-4. **Eliminar una ruta creada.**
-<br />:walking: Como usuario. <br /> **_Quiero_** tener la opción de eliminar una ruta. 
-<br /> :email: Se enviará una notificación a cada usuario pasajero que se suscribio a la ruta eliminada.
-#  
-5. **Unirse a una ruta.**
-<br />:walking: Como usuario. <br /> **_Quiero_** tener la opción de unirme a una ruta seleccionando una ruta disponible del listado en la vista principal. <br /> **_Quiero_** una vista en la que pueda visualizar una ruta seleccionada con los siguientes campos: `propietario`, `fecha`, `hora`, `origen`, `destino`, `cupos disponibles`, `lugar de encuentro`, `referencia destino`.
-Para poder unirme a la ruta que creó un propietario.  
-#  
-6. **Alerta próxima a la hora de salida.**
-<br />:walking: Como usuario. <br /> **_Quiero_** una notificación antes de 15 minutos de la hora de salida mediante un sonido y/o vibración  
-Para llegar puntualmente al lugar de encuentro de salida
